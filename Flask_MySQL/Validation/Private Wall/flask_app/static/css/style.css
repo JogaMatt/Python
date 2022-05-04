@@ -1,0 +1,82 @@
+/* .container{
+    background-color: rgb(110, 110, 251);
+} */
+
+#card{
+    background-color: lightslategray;
+    padding: 15px;
+    width: 450px;
+    height: 800px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+button{
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 15px;
+}
+
+.link{
+    margin-left: 20px;
+    font-size: large;
+    text-decoration: underline;
+}
+
+#body{
+    display: flex;
+    padding: 15px;
+    /* justify-content: space-between; */
+}
+
+.hyperlinks{
+    display: flex;
+    align-items: center;
+}
+
+#maincard{
+    background-color: lightslategray;
+    padding: 15px;
+    width: 450px;
+    height: 400px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+
+label{
+    font-size: 16pt;
+    margin-right: 100px;
+}
+
+.vertical_line{
+    border-left: 2px solid black;
+    height: 750px;
+    margin: 0px 45px 0px 45px;
+}
+
+#messages,
+#send_messages{
+    width: 500px;
+}
+
+#messages > h4{
+    text-decoration: underline;
+    margin-bottom: 45px;
+}
+
+#send_messages > h4{
+    text-decoration: underline;
+    margin-bottom: 45px;
+}
+
+#wall_page{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 45px;
+}

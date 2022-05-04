@@ -1,0 +1,54 @@
+*Query: Create 3 new dojos*
+
+INSERT INTO dojos (name)
+VALUES ("lin_kuei"),("special_forces"),("white_lotus");
+
+
+*Query: Delete the 3 dojos you just created*
+
+DELETE FROM dojos WHERE id >= 1;
+
+
+*Query: Create 3 more dojos*
+
+INSERT INTO dojos (name)
+VALUES ("brotherhood_of_shadow"),("shirai_ryu"),("black_dragon");
+
+
+*Query: Create 3 ninjas that belong to the first dojo*
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Bi","Han", 30, 1),("Kuai","Liang", 30, 1),("Tomas","Vrbada", 30, 1);
+
+
+*Query: Create 3 ninjas that belong to the second dojo*
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Hanzo","Hasashi", 30, 2),("Tekeda","Takashi", 30, 2),("Sotoshi","Hasashi", 30, 2);
+
+
+*Query: Create 3 ninjas that belong to the third dojo*
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Richard","Divizio", 30, 3),("Erron","Black", 30, 3),("Jon","Hey", 30, 3);
+
+
+*Query: Retrieve all the ninjas from the first dojo*
+
+SELECT * FROM ninjas
+WHERE ninjas.dojo_id = 1
+
+
+*Query: Retrieve all the ninjas from the first dojo*
+
+SELECT * FROM ninjas
+WHERE ninjas.dojo_id = 3
+
+
+*Query: Retrieve the last ninja's dojo*
+
+SELECT * FROM ninjas
+ORDER BY id DESC;
+
+SELECT name FROM dojos
+WHERE id = 3

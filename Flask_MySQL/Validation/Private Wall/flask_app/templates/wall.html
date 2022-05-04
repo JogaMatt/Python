@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Coding Dojo Wall</title>
+</head>
+<body>
+    <div class="container">
+        <div id="navbar">
+            <h1>CodingDojo Wall</h1>
+            <div class="hyperlinks">
+                <h3>Welcome, {{session['name']}}!</h3>
+                <a href="/logout" class="link">Logout</a>
+            </div>
+        </div>
+        <hr>
+        <div id="body">
+            <div id="messages">
+                <h4>Message(s) for You</h4>
+                <div class="message_box">
+
+                </div>
+            </div>
+            <div class="vertical_line"></div>
+            <div id="send_messages">
+                <h4>Send Messages</h4>
+                <div id="alert_card">
+                    {% with messages = get_flashed_messages() %}    
+                        {% if messages %}                        
+                            {% for message in messages %}     
+                                <p>{{message}}</p>          
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="user_box">
+                    {% for users in users %}
+                        {% if session['name'] != users.first_name %}
+                            <form action="/send" id="wall_page" method="post">
+                                <input type="hidden" name="sender_id" value=session['user_id']>
+                                <input type="hidden" name="receiver_id" value=user_id>
+                                <h4>{{users.first_name}}</h4>
+                                <input type="text" name="message" id="message">
+                                <button type="submit">Send Message</button>
+                            </form>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

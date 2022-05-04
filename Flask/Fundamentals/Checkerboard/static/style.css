@@ -1,0 +1,27 @@
+#container{
+    width: 1200px;
+    margin: auto;
+
+}
+
+h1{
+    text-align: center;
+}
+
+table{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.color1{
+    background-color: black;
+    height: 100px;
+    width: 100px;
+}
+
+.color2{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}

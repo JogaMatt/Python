@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Update User</title>
+</head>
+<body>
+    <div class="container">
+        <div id="navbar">
+            <div></div>
+            <div class="hyperlinks">
+                <a href="/dashboard" class="link">Dashboard</a>
+                <a href="/logout" class="link">Logout</a>
+            </div>
+        </div>
+        <div id="body">
+            <div class="left" id="maincard">
+                <h1>Update User</h1>
+                <form action="/update_user" method="post">
+                    <input type="hidden" name="id" value="{{users.id}}">
+                    <div class="name">
+                        <label for="name"><strong>First Name:</strong></label>
+                        <input type="text" name="first_name" id="name" value="{{users.first_name}}">
+                    </div>
+                    <div class="description">
+                        <label for="description"><strong>Last Name:</strong></label>
+                        <input type="text" name="last_name" id="description" value="{{users.last_name}}">
+                    </div>
+                    <div class="instructions">
+                        <label for="instructions"><strong>Email:</strong></label>
+                        <input type="text" name="email" id="instructions" value="{{users.email}}">
+                    </div>
+                    
+                    <button type="submit">Update</button>
+                
+            </div>
+            <div class="right" id="maincard">
+                <h1>User's Magazines</h1>
+                <div class="my_mags">
+                {% for magazines in magazines %}
+                    {% if session['user_id'] == magazines.user_id %}
+                        <div class="magazines">{{magazines.title}}
+                            <a href="/delete/{{magazines.id}}" class="link">Delete</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+
+
+                {% with messages = get_flashed_messages() %}    
+                    {% if messages %}                        
+                        {% for message in messages %}     
+                            <p>{{message}}</p>          
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

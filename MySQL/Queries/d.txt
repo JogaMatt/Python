@@ -1,0 +1,19 @@
+@staticmethod
+    def validate_recipe(recipe):
+        is_valid = True # we assume this is true
+        if len(recipe['name']) < 3:
+            flash("Name must be at least 3 characters.")
+            is_valid = False
+        if len(recipe['description']) < 3:
+            flash("Bun must be at least 3 characters.")
+            is_valid = False
+        if len(recipe['instructions']) < 3:
+            flash("Calories must be 200 or greater.")
+            is_valid = False
+        if len(recipe['cook_time']) < 3:
+            flash("Bun must be at least 3 characters.")
+            is_valid = False
+        return is_valid
+
+if not Recipe.validate_recipe(request.form):
+        return redirect('/create')

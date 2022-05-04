@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        #container{
+            width: 1200px;
+            margin: auto;
+        }
+        h1,
+        h2{
+            text-align: center;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1> Counter</h1>
+        <h2>{{count}}</h2>
+        <div class="buttons">
+            <form action='/addtwo' >
+                <input type="submit" name="" value="Add 2">
+            </form>
+
+            <form action='/reset'>
+                <input type="submit" name="" value="Reset">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
